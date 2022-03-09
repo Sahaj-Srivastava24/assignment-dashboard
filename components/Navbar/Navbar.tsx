@@ -1,5 +1,7 @@
 import type { NextComponentType, NextPageContext } from 'next'
 import { NavWrapper, Logo, NavMenu, NavItem} from "./Navbar.styles"
+import Link from 'next/link'
+
 
 type NavbarProps = {
   handleDrawer: () => void
@@ -8,13 +10,15 @@ type NavbarProps = {
 const Navbar : NextComponentType<NextPageContext, {}, NavbarProps> = ({ handleDrawer }) => {
   return (<NavWrapper>
       <Logo>
+        <Link href="/" passHref>
         <span>Dashboard</span>
+        </Link>
       </Logo>
       <NavMenu>
         <ul>
-          <NavItem>Users</NavItem>
-          <NavItem>News</NavItem>
-          <NavItem>Top Users</NavItem>
+          <NavItem><Link href="/users">Users</Link></NavItem>
+          <NavItem><Link href="/news">News</Link></NavItem>
+          <NavItem><Link href="/top_users">Top Users</Link></NavItem>
           <li onClick={handleDrawer}>Ham</li>
         </ul>
       </NavMenu>

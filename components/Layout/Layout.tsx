@@ -18,9 +18,8 @@ const Layout: NextComponentType = ({ children }) => {
           </ChildrenLayout>
           <Drawer />
         </PageLayout>
-        ) : null}
-      
-
+        ) : 
+        children}
     </>
   );
 }
