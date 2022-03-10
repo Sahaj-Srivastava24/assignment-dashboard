@@ -2,8 +2,9 @@ import styled from "@emotion/styled"
 
 export const PageLayout = styled.div`
   min-width: 100vw;
+  display: flex;
 `
 export const ChildrenLayout = styled.div`
-  max-width: 90vw;
+  width: 90%;
 `
 

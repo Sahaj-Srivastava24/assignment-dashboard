@@ -43,20 +43,24 @@ export const NavItem = styled.li`
     transform: scaleX(0.9); 
   }
 `
+export const DrawerWrapper = styled.li`
+  min-width: 10%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background: #ababab;
+`
+
 export const CloseButton = styled.div`
   cursor: pointer;
   
   `
 export const DrawerList = styled.div`
-  "& ul" {
-    list-style: none;
-    margin: 0;
-    padding: 0 0;
-  }
-  
-  `
+`
 
 export const DrawerItem = styled.li`
   cursor: pointer;
-
+  list-style: none;
+  padding: 1rem;
 `

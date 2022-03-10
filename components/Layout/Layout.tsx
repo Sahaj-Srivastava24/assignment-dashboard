@@ -16,7 +16,7 @@ const Layout: NextComponentType = ({ children }) => {
           <ChildrenLayout>
             {children}
           </ChildrenLayout>
-          <Drawer />
+          <Drawer handleDrawer={toggleDrawer}/>
         </PageLayout>
         ) : 
         children}
