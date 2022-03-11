@@ -1,10 +1,11 @@
-import type { NextPage, NextPageContext, GetServerSideProps } from 'next'
+import type { NextPage, GetStaticProps } from 'next'
 import type { NewsType } from '../types/NewsType';
+import NewsList from '../components/News/NewsList'
 import Head from 'next/head'
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts")
-  const news: NewsType = await res.json()
+  const news: NewsType[] = await res.json()
   if(!news)
     return {
       notFound: true,
@@ -17,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 }
 
 type Props = {
-  news: NewsType
+  news: NewsType[]
 }
 
 const News: NextPage<Props> = ({ news }) => {
@@ -29,7 +30,7 @@ const News: NextPage<Props> = ({ news }) => {
         <meta name="description" content="Dashboard" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      This is News
+      <NewsList news={news} />
     </>
   )
 }

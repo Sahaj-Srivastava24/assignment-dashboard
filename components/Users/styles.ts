@@ -7,7 +7,9 @@ export const SearchBar = styled.div`
   margin: 2rem;
 
   & span{
+    line-height: 50px;
     font-size: 1.5rem;
+    font-weight: bold;
     width: 10%;
   }
 `
@@ -16,6 +18,7 @@ export const SearchBar = styled.div`
   width: 60%;
   font-size: 1rem;
   padding: 0.5rem;
+  margin-right: 2rem;
 `
 
 export const Clear = styled.button`
@@ -28,16 +31,11 @@ export const Clear = styled.button`
   display : flex;
   flex-direction : column;
 `
-export const TableHeading = styled.div`
 
-`
-export const TableBody = styled.div`
+export const TableHeading = styled.div``
+export const TableBody = styled.div``
+export const SearchButton = styled.button``
 
-`
-
-export const SearchButton = styled.button`  
-  
-`
 export const Row = styled.div`
   display: flex;
   width: 100%;

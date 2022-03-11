@@ -26,7 +26,6 @@ type Props = {
 
 
 const Users: NextPage<Props> = ({ user }) => {
-  // console.log(user)
   return (
     <>
       <Head>
