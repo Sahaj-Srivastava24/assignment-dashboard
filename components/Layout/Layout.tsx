@@ -11,15 +11,16 @@ const Layout: NextComponentType = ({ children }) => {
   return (
     <>
       <Navbar handleDrawer={toggleDrawer}/>
-      {showDrawer? (
-        <PageLayout>
+      <PageLayout>
+      {showDrawer? (<>
           <ChildrenLayout>
             {children}
+            <Drawer handleDrawer={toggleDrawer}/>
           </ChildrenLayout>
-          <Drawer handleDrawer={toggleDrawer}/>
-        </PageLayout>
+            </>
         ) : 
         children}
+        </PageLayout>
     </>
   );
 }

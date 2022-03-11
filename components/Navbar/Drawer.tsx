@@ -1,5 +1,5 @@
 import { NextComponentType, NextPageContext } from "next";
-import { DrawerWrapper, CloseButton, DrawerList, DrawerItem } from "./Navbar.styles"
+import { DrawerWrapper, CloseButton, DrawerList, DrawerItem } from "./styles"
 
 type NavbarProps = {
   handleDrawer: () => void
@@ -9,9 +9,6 @@ type NavbarProps = {
 const Drawer : NextComponentType<NextPageContext, {}, NavbarProps> = ({ handleDrawer }) => {
   return (
     <DrawerWrapper>
-      <CloseButton>
-        <span onClick={handleDrawer}>Close</span>
-      </CloseButton>
       <DrawerList>
         <ul>
           <DrawerItem>Home</DrawerItem>

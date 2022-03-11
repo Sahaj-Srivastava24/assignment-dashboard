@@ -1,8 +1,27 @@
-import type { NextPage } from 'next'
+import type { NextPage, NextPageContext, GetServerSideProps } from 'next'
+import type { NewsType } from '../types/NewsType';
 import Head from 'next/head'
 
+export const getServerSideProps: GetServerSideProps = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts")
+  const news: NewsType = await res.json()
+  if(!news)
+    return {
+      notFound: true,
+    }
+  return {
+    props: {
+      news,
+    }
+  }
+}
 
-const News: NextPage = () => {
+type Props = {
+  news: NewsType
+}
+
+const News: NextPage<Props> = ({ news }) => {
+  console.log(news)
   return (
     <>
       <Head>

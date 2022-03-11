@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
 
 export const NavWrapper = styled.div`
+  width: 100%;
   background: #ababab;
   display: flex;
   justify-content: space-between;
@@ -43,13 +44,17 @@ export const NavItem = styled.li`
     transform: scaleX(0.9); 
   }
 `
+
 export const DrawerWrapper = styled.li`
+  position: fixed;
+  right: 0;
   min-width: 10%;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   cursor: pointer;
   background: #ababab;
+  text-align: center;
 `
 
 export const CloseButton = styled.div`
@@ -62,5 +67,5 @@ export const DrawerList = styled.div`
 export const DrawerItem = styled.li`
   cursor: pointer;
   list-style: none;
-  padding: 1rem;
+  padding: 1rem 0;
 `
