@@ -8,7 +8,10 @@ export const Heading = styled.div`
   font-weight: bold;
 `;
 
-export const NewsWrapper = styled.div``
+export const NewsWrapper = styled.div`
+  margin: 0;
+  padding: 0;
+`
 
 export const ContainerWrapper = styled.div`
   margin: 1% 10%;

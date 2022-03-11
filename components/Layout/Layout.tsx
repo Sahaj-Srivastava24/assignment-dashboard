@@ -1,6 +1,6 @@
 import { NextComponentType  } from "next";
 import { useState } from "react";
-import { PageLayout, ChildrenLayout } from "./Layout.styles";
+import { PageLayout, DrawerOpen, DrawerClosed } from "./styles";
 import Drawer from "../Navbar/Drawer";
 import Navbar from "../Navbar/Navbar";
 
@@ -12,15 +12,19 @@ const Layout: NextComponentType = ({ children }) => {
     <>
       <Navbar handleDrawer={toggleDrawer}/>
       <PageLayout>
-      {showDrawer? (<>
-          <ChildrenLayout>
-            {children}
+        {showDrawer? (
+          <div style={{ display: "flex"}}>
+            <DrawerOpen>
+              {children}
+            </DrawerOpen>
             <Drawer handleDrawer={toggleDrawer}/>
-          </ChildrenLayout>
-            </>
-        ) : 
-        children}
-        </PageLayout>
+          </div>
+        ) : (
+          <DrawerClosed>
+              {children}
+          </DrawerClosed>
+        )}
+      </PageLayout>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import type { NextComponentType, NextPageContext } from 'next'
 import { useState } from "react"
-import { NavWrapper, Logo, NavMenu, NavItem, } from "./styles"
+import { NavWrapper, Logo, NavMenu, NavItem, NavControl} from "./styles"
 import Link from 'next/link'
 
 
@@ -23,14 +23,14 @@ const Navbar : NextComponentType<NextPageContext, {}, NavbarProps> = ({ handleDr
       <NavMenu>
         <ul>
           {hideNavChips? 
-            (<li onClick={handleNavChips}>Close</li>)
+            (<NavControl onClick={handleNavChips}>Close</NavControl>)
             :
             (
             <>
               <NavItem><Link href="/users">Users</Link></NavItem>
               <NavItem><Link href="/news">News</Link></NavItem>
               <NavItem><Link href="/top_users">Top Users</Link></NavItem>
-              <li onClick={handleNavChips}>Open</li>
+              <NavControl onClick={handleNavChips}>Menu</NavControl>
             </>
             )}
         </ul>

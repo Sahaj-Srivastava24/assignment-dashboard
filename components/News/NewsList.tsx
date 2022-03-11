@@ -6,16 +6,11 @@ import NewsContainer from "./NewsContainer";
 const NewsList: NextComponentType<NextPageContext,{}, {news : NewsType[]}> = ({news}) => {
   
   return(
-    <>
-      {/* <Heading>
-          NewsList
-      </Heading> */}
-      <NewsWrapper>
-        {news.map((news_item, index) => (
-          <NewsContainer key={index} news_item={news_item} />
-        ))}
-      </NewsWrapper>
-    </>
+    <NewsWrapper>
+      {news.map((news_item, index) => (
+        <NewsContainer key={index} news_item={news_item} />
+      ))}
+    </NewsWrapper>
   )
 }
 

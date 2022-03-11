@@ -1,6 +1,8 @@
 import styled from "@emotion/styled"
 
 export const NavWrapper = styled.div`
+  position: fixed;
+  top: 0;
   width: 100%;
   background: #ababab;
   display: flex;
@@ -46,6 +48,7 @@ export const NavItem = styled.li`
 `
 
 export const DrawerWrapper = styled.li`
+  padding-top: 1rem;
   position: fixed;
   right: 0;
   min-width: 10%;
@@ -68,4 +71,7 @@ export const DrawerItem = styled.li`
   cursor: pointer;
   list-style: none;
   padding: 1rem 0;
+`
+export const NavControl = styled.li`
+  cursor: pointer;
 `

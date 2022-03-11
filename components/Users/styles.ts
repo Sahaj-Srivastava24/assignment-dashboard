@@ -2,11 +2,10 @@ import styled from "@emotion/styled"
 
 export const SearchBar = styled.div`
   display: flex;
+  align-items: center;
   width: 100%;
-  height: 50px;
-  margin: 2rem;
-
   & span{
+    padding: 0.8rem 2rem;
     line-height: 50px;
     font-size: 1.5rem;
     font-weight: bold;
@@ -14,8 +13,9 @@ export const SearchBar = styled.div`
   }
 `
   
-  export const SearchInput = styled.input`
+export const SearchInput = styled.input`
   width: 60%;
+  height: 50px;
   font-size: 1rem;
   padding: 0.5rem;
   margin-right: 2rem;
@@ -23,6 +23,7 @@ export const SearchBar = styled.div`
 
 export const Clear = styled.button`
   width: 5%;
+  height: 50px;
   margin: 0 0 0 1rem;
 `
 
@@ -45,17 +46,20 @@ export const Row = styled.div`
   &:nth-of-type(even) {
     background-color: #f2f2f2;
   }
-  &:hover {
-    transform : scale(1.005);
-    transition: transform 0.3s ease-in-out;
-  }
+  // &:hover {
+  //   transform : scale(1.005);
+  //   transition: transform 0.3s ease-in-out;
+  //   overflow: hidden;
+  // }
 `
 
 export const RowItem = styled.span`
-display: inline;
+  display: inline;
   padding-left: 2rem;
   width: 20%;
   cursor: pointer;
+
+
 `
 export const Header = styled.div`
   display: flex;
