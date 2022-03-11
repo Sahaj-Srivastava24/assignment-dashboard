@@ -2,8 +2,10 @@ import styled from "@emotion/styled"
 
 export const SearchBar = styled.div`
   display: flex;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
+  margin: 1rem 0;
   & span{
     padding: 0.8rem 2rem;
     line-height: 50px;

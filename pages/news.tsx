@@ -22,7 +22,7 @@ type Props = {
 }
 
 const News: NextPage<Props> = ({ news }) => {
-  console.log(news)
+  // console.log(news)
   return (
     <>
       <Head>

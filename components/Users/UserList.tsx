@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NextComponentType, NextPageContext } from "next";
 import { SearchBar, Table, TableHeading, TableBody, Header, RowHeading, Clear, SearchInput } from "./styles"
 import { UserType } from "../../types/UserType";
@@ -8,15 +9,21 @@ type Props = {
 }
 
 const UserList : NextComponentType<NextPageContext, {}, Props> = ({ users }) => {
-  const results = users;
-
+  const [search, setSearch] = useState("");
+  const [filteredUsers, setFilteredUsers] = useState(users);
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+    setFilteredUsers( users.filter((user) => {
+      return user.name.toLowerCase().includes(e.target.value.toLowerCase()) || user.email.toLowerCase().includes(e.target.value.toLowerCase()); ;
+    }))
+  }
   return (<>
     <SearchBar>
       <span>UserList</span>
-      <SearchInput type="text" />
+      <SearchInput type="text" value={search} onChange={e => handleSearch(e)}/>
       <Clear>Clear</Clear>
     </SearchBar>
-
+  
     <Table>
       <Header>
         <RowHeading>User ID</RowHeading>
@@ -26,7 +33,7 @@ const UserList : NextComponentType<NextPageContext, {}, Props> = ({ users }) => 
         <RowHeading>Blocked</RowHeading>
       </Header>
       <TableBody>
-        { users.map((user: UserType, index) => <TableRow key={index} user={user} />) }
+        { filteredUsers.map((user: UserType, index) => <TableRow key={index} user={user} />) }
       </TableBody>
     </Table>
   </>)
