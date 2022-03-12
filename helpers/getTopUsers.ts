@@ -1,5 +1,6 @@
 import { UserType } from '../types/UserType';
 
+// Fetches the top users from the localStorage and sorts them in ascending order of their ID's
 function getTopUsers(){
   type TopUserType = {
   id: number,

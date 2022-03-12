@@ -32,6 +32,7 @@ export function handleTopUser(user: UserType){
   }
 }
 
+// Gets the initial value for the check boxes on Users page
 export function checkTopUser(id: Number) {
   if(window.localStorage.getItem("topUser") !== null){
     var topUser: ItemType[] = JSON.parse(window.localStorage.getItem("topUser")!);

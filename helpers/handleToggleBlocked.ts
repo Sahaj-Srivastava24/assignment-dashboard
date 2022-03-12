@@ -42,6 +42,7 @@ export function handleBlocked(id: Number, setBlocked: Function) {
   }
 }
 
+// Gets the initial value for the checkboxes on Users page
 export function checkBlocked(id: Number) {
   if(window.localStorage.getItem("blocked") !== null){
     var blocked: ItemType[] = JSON.parse(window.localStorage.getItem("blocked")!);

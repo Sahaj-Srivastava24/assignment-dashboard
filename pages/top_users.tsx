@@ -6,7 +6,7 @@ import type { UserType } from "../types/UserType"
 import getTopUsers from "../helpers/getTopUsers"
 
 const TopUsers: NextPage = () => {
-  const [ topUsers, setTopUsers ] = useState<UserType[]>([])  
+  const [ topUsers, setTopUsers ] = useState<UserType[]>([])
   useEffect(() => {
     const userIds: UserType[] = getTopUsers();
     setTopUsers(userIds)

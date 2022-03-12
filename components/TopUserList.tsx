@@ -24,6 +24,9 @@ const TopUserList : NextComponentType<NextPageContext, {},Props> = ({ users, set
   if( users!.length > 0 ){
     return (
       <Table>
+        <h1 style={{margin: "1rem 0 2rem 0",width:"100%", textAlign: "center"}}>
+          Top Users
+        </h1>
         <Header>
           <RowHeading>User ID</RowHeading>
           <RowHeading>Username</RowHeading>
@@ -40,7 +43,7 @@ const TopUserList : NextComponentType<NextPageContext, {},Props> = ({ users, set
   }
   else {
     return (
-      <h1>No Top Users</h1>
+      <h1 style={{margin: "1rem 0 2rem 0",width:"100%", textAlign: "center"}}>No Top Users</h1>
     )
   }
 }
