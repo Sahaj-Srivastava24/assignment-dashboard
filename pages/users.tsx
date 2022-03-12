@@ -26,6 +26,7 @@ type Props = {
 
 
 const Users: NextPage<Props> = ({ user }) => {
+  // This Page isnt responsive
   return (
     <>
       <Head>

@@ -45,6 +45,9 @@ export const NavItem = styled.li`
   { 
     transform: scaleX(0.9); 
   }
+  @media (max-width: 1000px) {
+    font-size: 0.9rem;
+  }
 `
 
 export const DrawerWrapper = styled.li`
@@ -71,7 +74,13 @@ export const DrawerItem = styled.li`
   cursor: pointer;
   list-style: none;
   padding: 1rem 0;
+  @media (max-width: 1000px) {
+    font-size: 0.8rem;
+  }
 `
 export const NavControl = styled.li`
   cursor: pointer;
+  @media (max-width: 1000px) {
+    font-size: 0.9rem;
+  }
 `

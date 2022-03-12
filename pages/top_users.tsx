@@ -6,6 +6,7 @@ import type { UserType } from "../types/UserType"
 import getTopUsers from "../helpers/getTopUsers"
 
 const TopUsers: NextPage = () => {
+  // This Page isnt responsive
   const [ topUsers, setTopUsers ] = useState<UserType[]>([])
   useEffect(() => {
     const userIds: UserType[] = getTopUsers();

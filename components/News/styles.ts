@@ -25,6 +25,12 @@ export const NewsHeader = styled.div`
 export const NewsID = styled.h1`
   font-size: 4.5rem;
   color: #adadad;
+  @media (max-width: 1000px) {
+    font-size: 3rem;
+  }
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
 `
 export const NewsTitle = styled.div`
   padding-left: 1rem;
@@ -32,10 +38,22 @@ export const NewsTitle = styled.div`
   display: flex;
   align-items: flex-end;
   color: #383838;
+  @media (max-width: 1000px) {
+    font-size: 1.6rem;
+  }
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+  }
 `
 
 export const NewsBody = styled.div`
   padding-top: 1rem;
   font-size: 1.5rem;
   color: #4f4f4f;
+  @media (max-width: 1000px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 600px) {
+    font-size: 0.5rem;
+  }
 `

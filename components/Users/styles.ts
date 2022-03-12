@@ -16,9 +16,10 @@ export const SearchBar = styled.div`
 `
   
 export const SearchInput = styled.input`
+  line-height: 45px;
   width: 60%;
   height: 50px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding: 0.5rem;
   margin-right: 2rem;
 `

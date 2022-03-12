@@ -23,7 +23,7 @@ const UserList : NextComponentType<NextPageContext, {}, Props> = ({ users }) => 
   return (<>
     <SearchBar>
       <span>UserList</span>
-      <SearchInput type="text" value={search} onChange={e => handleSearch(e)}/>
+      <SearchInput type="text" value={search} placeholder={"Type something..!"} onChange={e => handleSearch(e)}/>
       {detailedView? 
       (<Button onClick={() => {
         setDetailedView(false)
