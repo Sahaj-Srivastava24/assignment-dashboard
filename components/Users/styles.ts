@@ -23,7 +23,7 @@ export const SearchInput = styled.input`
   margin-right: 2rem;
 `
 
-export const Clear = styled.button`
+export const Button = styled.button`
   width: 5%;
   height: 50px;
   margin: 0 0 0 1rem;
@@ -60,8 +60,6 @@ export const RowItem = styled.span`
   padding-left: 2rem;
   width: 20%;
   cursor: pointer;
-
-
 `
 export const Header = styled.div`
   display: flex;
@@ -72,8 +70,34 @@ export const Header = styled.div`
   background-color: #f2f2f2;
 `
 export const RowHeading = styled.span`
-font-size: 1.5rem;
-font-weight: bold; 
+  font-size: 1.5rem;
+  font-weight: bold; 
   padding-left: 2rem;
   width: 20%
+`
+
+export const DetailedWrapper = styled.div`
+  width: 94%;
+  background-color: #f2f2f2;
+  margin: 1% 3%;
+  padding: 2rem;
+
+  & h1{
+    width: 100%;
+    margin: 1rem 0;
+    color: #383838;
+  }
+`
+export const MainHeading = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const SubHeading = styled.div`
+  padding: 0.3rem 1rem;
+  display: flex;
+  & h4{
+    min-width: 30%;
+    color: #4f4f4f;
+  }
 `

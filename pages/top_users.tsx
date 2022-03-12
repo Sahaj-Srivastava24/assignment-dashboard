@@ -1,8 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import UserList from '../components/Users/UserList'
+import getTopUsers from '../helpers/getTopUsers'
 
 
 const TopUsers: NextPage = () => {
+  // console.log(window.localStorage)
+  // const topUsers = getTopUsers()
   return (
     <>
       <Head>
@@ -10,7 +14,7 @@ const TopUsers: NextPage = () => {
         <meta name="description" content="Dashboard" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      This is Top users
+      {/* {topUsers ? <UserList users={topUsers} /> : <div>No Top Users</div>} */}
     </>
   )
 }
