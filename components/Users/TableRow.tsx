@@ -1,8 +1,8 @@
 import { useState, Dispatch, SetStateAction } from 'react';
 import { NextComponentType, NextPageContext } from "next";
 import { UserType } from "../../types/UserType";
-import handleTopUser from '../../helpers/handleToggleTopUser';
-import handleBlocked from '../../helpers/handleToggleBlocked';
+import { handleTopUser, checkTopUser } from '../../helpers/handleToggleTopUser';
+import { handleBlocked, checkBlocked } from '../../helpers/handleToggleBlocked';
 import { Row, RowItem } from "./styles";
 
 type Props = {
@@ -12,8 +12,9 @@ type Props = {
 }
 const TableRow : NextComponentType<NextPageContext, {}, Props> = ({ user, openDetailedView, setUser }) => {
   const { id , name, email } = user;
-  const [ blocked, setBlocked ] = useState<boolean>(false);
-  const [ topUser, settopUser ] = useState<boolean>(false);
+  const [ blocked, setBlocked ] = useState<boolean>(checkBlocked(id));
+  const [ topUser, settopUser ] = useState<boolean>(checkTopUser(id));
+  console.log(checkTopUser(id));
 
   const onChangeBlock = () => {
     setBlocked(!blocked);
@@ -22,7 +23,7 @@ const TableRow : NextComponentType<NextPageContext, {}, Props> = ({ user, openDe
 
   const onChangeTopUser = () => {
     settopUser(!topUser);
-    handleTopUser(id);
+    handleTopUser(user);
   }
 
   const handleShowDetails = () => {

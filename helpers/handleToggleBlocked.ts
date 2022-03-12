@@ -1,13 +1,13 @@
-function handleBlocked(id: Number, setBlocked: Function) {
-  // Idea: There would be an array of users that are blocked stored in localStorage
-  // When ever the handler is called with the id to toggle the block, it would check if the id is in the array
-  // and if it is, it would remove it, if it is not, it would add it.
-  type ItemType = {
+type ItemType = {
     id: Number, 
     isTop: Boolean, 
     time: ReturnType<typeof setTimeout>
-  }
-
+}
+  
+export function handleBlocked(id: Number, setBlocked: Function) {
+  // Idea: There would be an array of users that are blocked stored in localStorage
+  // When ever the handler is called with the id to toggle the block, it would check if the id is in the array
+  // and if it is, it would remove it, if it is not, it would add it.
   if(window.localStorage.getItem("blocked") !== null){
     var blocked: ItemType[] = JSON.parse(window.localStorage.getItem("blocked")!);
     console.log(blocked);
@@ -42,4 +42,18 @@ function handleBlocked(id: Number, setBlocked: Function) {
   }
 }
 
-export default handleBlocked;
+export function checkBlocked(id: Number) {
+  if(window.localStorage.getItem("blocked") !== null){
+    var blocked: ItemType[] = JSON.parse(window.localStorage.getItem("blocked")!);
+    let found = blocked.findIndex( (item: any) => {
+      return (item.id === id) 
+    })
+    if(found !== -1){
+      return true
+    }
+    else{
+      return false
+    }
+  }
+  return false
+}
