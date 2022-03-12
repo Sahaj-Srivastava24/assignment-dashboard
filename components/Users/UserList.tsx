@@ -49,7 +49,7 @@ const UserList : NextComponentType<NextPageContext, {}, Props> = ({ users }) => 
           <RowHeading>Blocked</RowHeading>
         </Header>
         <TableBody>
-          { filteredUsers.map((user: UserType, index) => <TableRow key={index} user={user} openDetailedView={setDetailedView} setUser={setDetailedUser}/>) }
+          { filteredUsers.map((user: UserType, index) => <TableRow key={index} user={user} openDetailedView={setDetailedView} setDetailedUser={setDetailedUser} setTopUsers={null}/>) }
         </TableBody>
     </Table>
     )}

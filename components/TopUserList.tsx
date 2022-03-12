@@ -32,6 +32,7 @@ const TopUserList : NextComponentType<NextPageContext, {},Props> = ({ users, set
           <RowHeading>Blocked</RowHeading>
         </Header>
         <TableBody>
+          {/* @ts-ignore */}
           { users!.map((user: UserType) => <TableRow key={user.id} user={user} openDetailedView={setDetailedView} setDetailedUser={setDetailedUser} setTopUsers={setUsers}/>) }
         </TableBody>
     </Table>

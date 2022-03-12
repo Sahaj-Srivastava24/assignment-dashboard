@@ -11,7 +11,7 @@ type Props = {
   user: UserType;
   openDetailedView: Dispatch<SetStateAction<Boolean>>;
   setDetailedUser: Dispatch<SetStateAction<UserType>>;
-  setTopUsers: Dispatch<SetStateAction<UserType[]>>;
+  setTopUsers: Dispatch<SetStateAction<UserType[]>> | null;
 }
 const TableRow : NextComponentType<NextPageContext, {}, Props> = ({ user, openDetailedView, setDetailedUser, setTopUsers }) => {
   const router = useRouter()
@@ -27,7 +27,7 @@ const TableRow : NextComponentType<NextPageContext, {}, Props> = ({ user, openDe
   const onChangeTopUser = () => {
     if(topUser && (router.pathname === "/top_users")){
       console.log("removed from top users " + id );
-      setTopUsers(users => {
+      setTopUsers!(users => {
         console.log(users)
         return users.filter(user => user.id !== id)
       });
