@@ -38,7 +38,6 @@ export function checkTopUser(id: Number) {
     let found = topUser.findIndex( (item: any) => {
       return (item.id === id) 
     })
-    console.log(found)
     if(found !== -1){
       return true
     }

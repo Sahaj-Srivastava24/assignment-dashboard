@@ -24,7 +24,7 @@ export function handleBlocked(id: Number, setBlocked: Function) {
         time: setTimeout(() => {
             handleBlocked(id, setBlocked);
             setBlocked((prev: boolean) => !prev) 
-          },5000)
+          },5 * 60 * 1000)
       });
     }
     window.localStorage.setItem("blocked", JSON.stringify(blocked));

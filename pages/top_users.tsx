@@ -3,24 +3,14 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import TopUserList from '../components/TopUserList'
 import type { UserType } from "../types/UserType"
-
-type TopUserType = {
-  id: number,
-  isTop: boolean,
-  user: UserType
-}
+import getTopUsers from "../helpers/getTopUsers"
 
 const TopUsers: NextPage = () => {
-  const [ topUsers, setTopUsers ] = useState<UserType[]>([])
+  const [ topUsers, setTopUsers ] = useState<UserType[]>([])  
   useEffect(() => {
-    const userIds: TopUserType[] = JSON.parse(window.localStorage.getItem("topUser")!)
-    if(userIds) {
-    userIds.map( user => {
-      setTopUsers(prev => [...prev, user.user])
-    })}
-  }, [])
-  console.log(topUsers)
-
+    const userIds: UserType[] = getTopUsers();
+    setTopUsers(userIds)
+  }, [])  
   return (
     <>
       <Head>
@@ -28,7 +18,7 @@ const TopUsers: NextPage = () => {
         <meta name="description" content="Dashboard" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      { topUsers.length > 0 ? <TopUserList users={topUsers} /> : <h1>No Top Users</h1> }
+      <TopUserList users={topUsers} setUsers={setTopUsers} />
     </>
   )
 }

@@ -3,18 +3,21 @@ import { NextComponentType, NextPageContext } from "next";
 import { UserType } from "../../types/UserType";
 import { handleTopUser, checkTopUser } from '../../helpers/handleToggleTopUser';
 import { handleBlocked, checkBlocked } from '../../helpers/handleToggleBlocked';
+import { useRouter } from 'next/router'
+import getTopUsers from "../..//helpers/getTopUsers"
 import { Row, RowItem } from "./styles";
 
 type Props = {
   user: UserType;
   openDetailedView: Dispatch<SetStateAction<Boolean>>;
-  setUser: Dispatch<SetStateAction<UserType>>;
+  setDetailedUser: Dispatch<SetStateAction<UserType>>;
+  setTopUsers: Dispatch<SetStateAction<UserType[]>>;
 }
-const TableRow : NextComponentType<NextPageContext, {}, Props> = ({ user, openDetailedView, setUser }) => {
+const TableRow : NextComponentType<NextPageContext, {}, Props> = ({ user, openDetailedView, setDetailedUser, setTopUsers }) => {
+  const router = useRouter()
   const { id , name, email } = user;
   const [ blocked, setBlocked ] = useState<boolean>(checkBlocked(id));
   const [ topUser, settopUser ] = useState<boolean>(checkTopUser(id));
-  console.log(checkTopUser(id));
 
   const onChangeBlock = () => {
     setBlocked(!blocked);
@@ -22,15 +25,22 @@ const TableRow : NextComponentType<NextPageContext, {}, Props> = ({ user, openDe
   }
 
   const onChangeTopUser = () => {
-    settopUser(!topUser);
-    handleTopUser(user);
+    if(topUser && (router.pathname === "/top_users")){
+      console.log("removed from top users " + id );
+      setTopUsers(users => {
+        console.log(users)
+        return users.filter(user => user.id !== id)
+      });
+    }
+    settopUser(prev => !prev);
+    handleTopUser(user); 
+    console.log(user)
   }
 
   const handleShowDetails = () => {
-    setUser(user);
+    setDetailedUser(user);
     openDetailedView(true);
   }
-  
   return (
     <Row>
       <RowItem>{id}</RowItem>

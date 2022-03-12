@@ -15,5 +15,6 @@ export const DrawerClosed = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+  padding: 1rem 0
 `
 
