@@ -34,6 +34,7 @@ export function handleTopUser(user: UserType){
 
 // Gets the initial value for the check boxes on Users page
 export function checkTopUser(id: Number) {
+  // window object is a part of client side and is unavailable until the dom is loaded, so until then it could not be accessed and was resulting in an error
   if (typeof window !== "undefined") {
     if(window.localStorage.getItem("topUser") !== null){
       var topUser: ItemType[] = JSON.parse(window.localStorage.getItem("topUser")!);
