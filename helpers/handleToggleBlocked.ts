@@ -44,16 +44,19 @@ export function handleBlocked(id: Number, setBlocked: Function) {
 
 // Gets the initial value for the checkboxes on Users page
 export function checkBlocked(id: Number) {
-  if(window.localStorage.getItem("blocked") !== null){
-    var blocked: ItemType[] = JSON.parse(window.localStorage.getItem("blocked")!);
-    let found = blocked.findIndex( (item: any) => {
-      return (item.id === id) 
-    })
-    if(found !== -1){
-      return true
-    }
-    else{
-      return false
+  // window object is a part of client side and is unavailable until the dom is loaded, so until then it could not be accessed and was resulting in an error
+  if (typeof window !== "undefined") {
+    if(window.localStorage.getItem("blocked") !== null){
+      var blocked: ItemType[] = JSON.parse(window.localStorage.getItem("blocked")!);
+      let found = blocked.findIndex( (item: any) => {
+        return (item.id === id) 
+      })
+      if(found !== -1){
+        return true
+      }
+      else{
+        return false
+      }
     }
   }
   return false

@@ -34,16 +34,18 @@ export function handleTopUser(user: UserType){
 
 // Gets the initial value for the check boxes on Users page
 export function checkTopUser(id: Number) {
-  if(window.localStorage.getItem("topUser") !== null){
-    var topUser: ItemType[] = JSON.parse(window.localStorage.getItem("topUser")!);
-    let found = topUser.findIndex( (item: any) => {
-      return (item.id === id) 
-    })
-    if(found !== -1){
-      return true
-    }
-    else{
-      return false
+  if (typeof window !== "undefined") {
+    if(window.localStorage.getItem("topUser") !== null){
+      var topUser: ItemType[] = JSON.parse(window.localStorage.getItem("topUser")!);
+      let found = topUser.findIndex( (item: any) => {
+        return (item.id === id) 
+      })
+      if(found !== -1){
+        return true
+      }
+      else{
+        return false
+      }
     }
   }
   return false;
